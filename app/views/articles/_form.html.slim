@@ -1,0 +1,19 @@
+= form_for @article, html: {class: 'form'} do |f|
+  - if @article.errors.any?
+    .alert.alert-danger
+      h2 = "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
+      ul
+        - @article.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .field
+    = f.label :kb_number, "KB Number"
+    = f.text_field :kb_number, class: 'form-control'
+  .field
+    = f.label :contents
+    = f.text_area :contents, class: 'form-control', rows: '6'
+  br
+    = f.submit 'Save', class: 'btn btn-primary'
