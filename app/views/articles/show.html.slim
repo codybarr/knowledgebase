@@ -1,4 +1,5 @@
-p#notice = notice
+- if notice
+  p.alert = notice
 
 h1 
   = @article.title
@@ -12,7 +13,7 @@ p
     = @article.kb_number
 
 p
-  = Maruku.new(@article.contents.html_safe).to_html.html_safe
+  = @article.contents.html_safe
 
 = link_to 'Edit', edit_article_path(@article), class: 'btn btn-success'
 = " "

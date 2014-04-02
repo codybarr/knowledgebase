@@ -1,18 +1,15 @@
-p#notice = notice
+- if notice
+  p.alert.alert-success = notice
 
-h1 
-  = @article.title
-
-= link_to 'Edit', edit_article_path(@article), class: 'btn btn-success'
-= " "
-= link_to 'Back', articles_path, class: 'btn btn-default'
-
-p
-  strong 
-    = @article.kb_number
-
-p
-  = Maruku.new(@article.contents.html_safe).to_html.html_safe
+article
+  header
+    h2
+      = @article.title
+      = ' '
+      small
+        = @article.kb_number
+  .contents
+    = @article.contents.html_safe
 
 = link_to 'Edit', edit_article_path(@article), class: 'btn btn-success'
 = " "

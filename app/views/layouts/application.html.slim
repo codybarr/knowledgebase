@@ -8,6 +8,6 @@ html
     = csrf_meta_tags
   body
     .container
-      h1 Knowledgebase
+      h1 = link_to 'Knowledgebase', :root
       = yield
 
