@@ -7,7 +7,11 @@ class ArticlesController < ApplicationController
     if params[:search].present?
       @articles = Article.basic_search(params[:search])
     else
-      @articles = Article.first(10)
+      nums = []
+      first = Article.first.id
+      count = Article.count
+      10.times { nums.push(rand(count) + first) }
+      @articles = Article.find(nums)
     end
 
   end
@@ -18,7 +22,7 @@ class ArticlesController < ApplicationController
   end
 
   def show_kb
-    @article = Article.find_by kb_number: params[:kb_number]
+    @article = Article.find_by(kb_number: params[:kb_number])
   end
 
   # GET /articles/new

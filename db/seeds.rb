@@ -8,19 +8,19 @@
 Article.delete_all
 
 # Article Title data
-bus = %w(P&W UTRC CORP CCS Sikorsky Otis Global UTAS Goodrich Hamilton FS Carrier Research)
-apps = %w(SAP Teamcenter Mainframe Unix AS400 Baan Active\ Directory Outlook Word JDE )
+bus = %w(Microsoft Apple Google Mashable Lifehacker McDonalds Applebees Facebook Twitter)
+apps = %w(Chrome Safari Internet\ Explorer Opera Firefox Spotify Sublime\ Text Terminal)
 types = %w(Escalation Password\ Resets Support\ Procedures Assignment Outages Common\ Problems)
-stuffs = %w(Random Words Added To The End Of My Scripts Creating Many More Records)
+locations = %w(Connecticut Maine Vermont Florida Texas Washington Springfield Gotham Metropolis)
 
 kb_counter = 0
 bus.each do |bu|
   apps.each do |app|
     types.each do |type|
-      stuffs.each do |stuff|
+      locations.each do |location|
         kb_counter += 1
 
-        title = "UTC - #{bu} - #{app} - #{type} - #{stuff} (#{kb_counter})"
+        title = "UTC - #{bu} - #{app} - #{type} - #{location} (#{kb_counter})"
         kb_number = sprintf("KBA%08d", kb_counter)
         contents = 
         "<strong>Section 1</strong>
