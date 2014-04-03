@@ -2,6 +2,7 @@
   p.lead Sorry, there were no results
 - else
 
+  p.lead = "#{pluralize(@articles.count, 'article')} found."
   table.table
     thead
       tr
