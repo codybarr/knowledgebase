@@ -8,27 +8,31 @@
 Article.delete_all
 
 # Article Title data
-bus = %w(P&W UTRC CORP CCS Sikorsky Otis Global UTAS)
-apps = %w(SAP Teamcenter Mainframe Unix AS400 Baan Active\ Directory Outlook)
-types = %w(Escalation Password\ Resets Support\ Procedures Assignment Outages)
+bus = %w(P&W UTRC CORP CCS Sikorsky Otis Global UTAS Goodrich Hamilton FS Carrier Research)
+apps = %w(SAP Teamcenter Mainframe Unix AS400 Baan Active\ Directory Outlook Word JDE )
+types = %w(Escalation Password\ Resets Support\ Procedures Assignment Outages Common\ Problems)
+stuffs = %w(Random Words Added To The End Of My Scripts Creating Many More Records)
 
 kb_counter = 0
 bus.each do |bu|
   apps.each do |app|
     types.each do |type|
-      kb_counter += 1
+      stuffs.each do |stuff|
+        kb_counter += 1
 
-      title = "UTC - #{bu} - #{app} - #{type} (#{kb_counter})"
-      kb_number = sprintf("KBA%08d", kb_counter)
-      contents = 
-      "<strong>Section 1</strong>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum purus lectus, nec suscipit orci pulvinar vel. Nunc pharetra, risus ut congue posuere, erat mi iaculis justo, nec tristique nulla mauris vel enim. Praesent eu lorem id tellus ultrices egestas. Nulla malesuada sapien ligula. Nullam aliquam lectus at massa gravida, et elementum augue congue. Donec tempus, massa eget imperdiet pellentesque, nulla risus tincidunt dui, tincidunt dictum ipsum sapien sit amet turpis. Quisque tempor semper euismod. Nam odio lectus, venenatis quis placerat eu, egestas non urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ut diam eu leo blandit iaculis. Donec commodo fermentum lectus, tempus varius dolor rhoncus in. Aenean non magna auctor, commodo libero ut, consequat sapien. Quisque ullamcorper elit id venenatis dictum.</p>
-      <strong>Section 2</strong>
-      <p>Etiam rutrum cursus ultrices. Nulla facilisi. Nam semper ligula odio, id volutpat ipsum sodales vitae. Cras malesuada, purus at posuere tincidunt, felis eros fringilla nulla, in ultrices quam felis in justo. Morbi vel posuere ligula, a auctor arcu. Pellentesque eget sodales turpis. Mauris mattis malesuada auctor. Etiam tincidunt arcu condimentum libero mattis, quis elementum nulla aliquet. Curabitur eleifend magna ac arcu rhoncus sodales.</p>
-      <strong>Section 3</strong
-      <p>Fusce ullamcorper eleifend orci nec rutrum. Nam sed erat erat. Quisque facilisis ut odio ut fermentum. Ut blandit cursus nunc et venenatis. Aenean ornare orci eget augue porta, a laoreet nunc imperdiet. Aliquam pretium diam et sapien placerat vehicula. Donec condimentum orci quis mi tempus, et euismod nulla cursus. Mauris dignissim purus eu augue fringilla, quis tincidunt neque venenatis. Morbi dictum nunc vitae ante fermentum, eu mollis mi accumsan. Duis sagittis metus mauris, sit amet tempus turpis interdum in.</p>"
+        title = "UTC - #{bu} - #{app} - #{type} - #{stuff} (#{kb_counter})"
+        kb_number = sprintf("KBA%08d", kb_counter)
+        contents = 
+        "<strong>Section 1</strong>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum purus lectus, nec suscipit orci pulvinar vel. Nunc pharetra, risus ut congue posuere, erat mi iaculis justo, nec tristique nulla mauris vel enim. Praesent eu lorem id tellus ultrices egestas. Nulla malesuada sapien ligula. Nullam aliquam lectus at massa gravida, et elementum augue congue. Donec tempus, massa eget imperdiet pellentesque, nulla risus tincidunt dui, tincidunt dictum ipsum sapien sit amet turpis. Quisque tempor semper euismod. Nam odio lectus, venenatis quis placerat eu, egestas non urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ut diam eu leo blandit iaculis. Donec commodo fermentum lectus, tempus varius dolor rhoncus in. Aenean non magna auctor, commodo libero ut, consequat sapien. Quisque ullamcorper elit id venenatis dictum.</p>
+        <strong>Section 2</strong>
+        <p>Etiam rutrum cursus ultrices. Nulla facilisi. Nam semper ligula odio, id volutpat ipsum sodales vitae. Cras malesuada, purus at posuere tincidunt, felis eros fringilla nulla, in ultrices quam felis in justo. Morbi vel posuere ligula, a auctor arcu. Pellentesque eget sodales turpis. Mauris mattis malesuada auctor. Etiam tincidunt arcu condimentum libero mattis, quis elementum nulla aliquet. Curabitur eleifend magna ac arcu rhoncus sodales.</p>
+        <strong>Section 3</strong
+        <p>Fusce ullamcorper eleifend orci nec rutrum. Nam sed erat erat. Quisque facilisis ut odio ut fermentum. Ut blandit cursus nunc et venenatis. Aenean ornare orci eget augue porta, a laoreet nunc imperdiet. Aliquam pretium diam et sapien placerat vehicula. Donec condimentum orci quis mi tempus, et euismod nulla cursus. Mauris dignissim purus eu augue fringilla, quis tincidunt neque venenatis. Morbi dictum nunc vitae ante fermentum, eu mollis mi accumsan. Duis sagittis metus mauris, sit amet tempus turpis interdum in.</p>"
 
-      Article.create(title: title, kb_number: kb_number, contents: contents)
+        Article.create(title: title, kb_number: kb_number, contents: contents)
+
+      end
     end
   end
 end
