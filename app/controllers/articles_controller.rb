@@ -7,8 +7,9 @@ class ArticlesController < ApplicationController
     if params[:search].present?
       @articles = Article.basic_search(params[:search])
     else
-      @articles = Article.all
+      @articles = Article.first(10)
     end
+
   end
 
   # GET /articles/1

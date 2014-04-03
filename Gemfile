@@ -36,6 +36,9 @@ gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'textacular'
 
+# heroku
+gem 'rails_12factor', group: :production
+
 gem 'maruku'
 gem 'html2markdown'
 

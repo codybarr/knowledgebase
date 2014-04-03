@@ -1,0 +1,21 @@
+- if @articles.empty?
+  p.lead Sorry, there were no results
+- else
+
+  table.table
+    thead
+      tr
+        th Title
+        th Id
+        th Edit
+
+    tbody
+      - @articles.each do |article|
+        tr
+          td 
+            = link_to article.title, kb_path(article.kb_number)
+            p = truncate(strip_tags(article.contents), length: 80)
+          td = article.kb_number
+          td = link_to 'Edit', edit_article_path(article)
+
+  br

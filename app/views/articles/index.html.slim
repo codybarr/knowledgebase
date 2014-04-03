@@ -1,33 +1,15 @@
 h2 Articles
 
-= form_tag articles_path, method: :get, html: {class: 'form'} do
+= form_tag articles_path, method: :get, class: 'form', remote: true, id: 'kb-search' do
   .field
     = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search'
   br
   = submit_tag "Search", name: nil, class: 'btn btn-primary'
   = ' '
-  = link_to 'Reset', '#', class: 'btn btn-danger'
+  = link_to 'Reset', '#', id: 'reset-button', class: 'btn btn-danger'
 
 
-
-table.table
-  thead
-    tr
-      th Title
-      th Id
-      th Edit
-      th Delete
-
-  tbody
-    - @articles.each do |article|
-      tr
-        td 
-          = link_to article.title, kb_path(article.kb_number)
-          p = truncate(strip_tags(article.contents), length: 80)
-        td = article.kb_number
-        td = link_to 'Edit', edit_article_path(article)
-        td = link_to 'Destroy', article, method: :delete
-
-br
+#kb-results
+  == render 'kb_results'
 
 = link_to 'New Article', new_article_path, class: 'btn btn-success'
