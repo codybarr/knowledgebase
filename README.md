@@ -1,4 +1,4 @@
-# _Knowledgebase_
+# Knowledgebase
 
 Simple knowledgebase application written in Rails. Implements full-text ajax searching.
 
