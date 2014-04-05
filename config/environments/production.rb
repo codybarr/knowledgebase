@@ -77,4 +77,7 @@ Knowledgebase::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #Schema Format
+  config.active_record.schema_format = :ruby
 end
