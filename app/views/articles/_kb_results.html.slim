@@ -3,6 +3,7 @@
 - else
 
   p.lead = "#{pluralize(@articles.count, 'article')} found."
+  = will_paginate @articles
   table.table
     thead
       tr

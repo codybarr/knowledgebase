@@ -35,6 +35,7 @@ end
 gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'textacular'
+gem 'will_paginate'
 
 # heroku
 gem 'rails_12factor', group: :production

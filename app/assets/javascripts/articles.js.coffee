@@ -13,7 +13,3 @@ $(document).ready ->
     $("#search-loader").addClass "spinner"
   ).ajaxStop ->
     $("#search-loader").removeClass "spinner"
-
-  $("#reset-button").on("click") ->
-    $("#search").empty
-    $("#kb-search").submit

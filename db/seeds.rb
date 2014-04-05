@@ -20,7 +20,7 @@ bus.each do |bu|
       locations.each do |location|
         kb_counter += 1
 
-        title = "UTC - #{bu} - #{app} - #{type} - #{location} (#{kb_counter})"
+        title = "#{bu} - #{app} - #{type} - #{location} (#{kb_counter})"
         kb_number = sprintf("KBA%08d", kb_counter)
         contents = 
         "<strong>Section 1</strong>

@@ -5,13 +5,14 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if params[:search].present?
-      @articles = Article.basic_search(params[:search])
+      @articles = Article.basic_search(params[:search]).paginate(page: params[:page])
     else
+      # Selects 10 random records
       nums = []
       first = Article.first.id
       count = Article.count
       10.times { nums.push(rand(count) + first) }
-      @articles = Article.find(nums)
+      @articles = Article.find(nums).paginate(page: params[:page])
     end
 
   end
