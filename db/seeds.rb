@@ -8,9 +8,9 @@
 Article.delete_all
 
 # Article Title data
-bus = %w(Microsoft Apple Google Mashable Lifehacker McDonalds Applebees Facebook Twitter)
-apps = %w(Chrome Safari Internet\ Explorer Opera Firefox Spotify Sublime\ Text Terminal)
-types = %w(Escalation Password\ Resets Support\ Procedures Assignment Outages Common\ Problems)
+bus = %w(Microsoft Apple Google Mashable Lifehacker McDonalds Applebees Facebook Twitter Engadget Amazon)
+apps = %w(Chrome Safari Netscape Headphones Opera Firefox Spotify Youtube Terminal Office)
+types = %w(Escalation Passwords Accounts Procedures Assignment Outages Problems Issues Puppies)
 locations = %w(Connecticut Maine Vermont Florida Texas Washington Springfield Gotham Metropolis)
 
 kb_counter = 0
