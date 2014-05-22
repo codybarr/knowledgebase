@@ -1,8 +1,8 @@
 Knowledgebase::Application.routes.draw do
   root 'articles#index'
+  get '/kb/:kb_number', to: 'articles#show', as: 'article'
   resources :articles
 
-  get '/kb/:kb_number', to: 'articles#show_kb', as: 'kb'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

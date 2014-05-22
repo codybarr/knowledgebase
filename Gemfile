@@ -40,8 +40,8 @@ gem 'will_paginate'
 # heroku
 gem 'rails_12factor', group: :production
 
-gem 'maruku'
-gem 'html2markdown'
+# seed data
+gem 'forgery'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

@@ -7,32 +7,23 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Article.delete_all
 
-# Article Title data
-bus = %w(Microsoft Apple Google Mashable Lifehacker McDonalds Applebees Facebook Twitter Engadget Amazon)
-apps = %w(Chrome Safari Netscape Headphones Opera Firefox Spotify Youtube Terminal Office)
-types = %w(Escalation Passwords Accounts Procedures Assignment Outages Problems Issues Puppies)
-locations = %w(Connecticut Maine Vermont Florida Texas Washington Springfield Gotham Metropolis)
+names = Forgery(:name)
+ipsum = Forgery(:lorem_ipsum)
 
-kb_counter = 0
-bus.each do |bu|
-  apps.each do |app|
-    types.each do |type|
-      locations.each do |location|
-        kb_counter += 1
+20000.times do |kb_counter|
 
-        title = "#{bu} - #{app} - #{type} - #{location} (#{kb_counter})"
-        kb_number = sprintf("KBA%08d", kb_counter)
-        contents = 
-        "<strong>Section 1</strong>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum purus lectus, nec suscipit orci pulvinar vel. Nunc pharetra, risus ut congue posuere, erat mi iaculis justo, nec tristique nulla mauris vel enim. Praesent eu lorem id tellus ultrices egestas. Nulla malesuada sapien ligula. Nullam aliquam lectus at massa gravida, et elementum augue congue. Donec tempus, massa eget imperdiet pellentesque, nulla risus tincidunt dui, tincidunt dictum ipsum sapien sit amet turpis. Quisque tempor semper euismod. Nam odio lectus, venenatis quis placerat eu, egestas non urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ut diam eu leo blandit iaculis. Donec commodo fermentum lectus, tempus varius dolor rhoncus in. Aenean non magna auctor, commodo libero ut, consequat sapien. Quisque ullamcorper elit id venenatis dictum.</p>
-        <strong>Section 2</strong>
-        <p>Etiam rutrum cursus ultrices. Nulla facilisi. Nam semper ligula odio, id volutpat ipsum sodales vitae. Cras malesuada, purus at posuere tincidunt, felis eros fringilla nulla, in ultrices quam felis in justo. Morbi vel posuere ligula, a auctor arcu. Pellentesque eget sodales turpis. Mauris mattis malesuada auctor. Etiam tincidunt arcu condimentum libero mattis, quis elementum nulla aliquet. Curabitur eleifend magna ac arcu rhoncus sodales.</p>
-        <strong>Section 3</strong>
-        <p>Fusce ullamcorper eleifend orci nec rutrum. Nam sed erat erat. Quisque facilisis ut odio ut fermentum. Ut blandit cursus nunc et venenatis. Aenean ornare orci eget augue porta, a laoreet nunc imperdiet. Aliquam pretium diam et sapien placerat vehicula. Donec condimentum orci quis mi tempus, et euismod nulla cursus. Mauris dignissim purus eu augue fringilla, quis tincidunt neque venenatis. Morbi dictum nunc vitae ante fermentum, eu mollis mi accumsan. Duis sagittis metus mauris, sit amet tempus turpis interdum in.</p>"
+  kb_number = sprintf("KBA%08d", kb_counter)
+  title = "#{names.company_name} - #{names.industry} - #{names.location} (#{kb_counter})"
 
-        Article.create(title: title, kb_number: kb_number, contents: contents)
+  contents = 
+  "<strong>#{ipsum.word} 1</strong>
+  #{ipsum.paragraphs(2)}
+  <strong>#{ipsum.word} 2</strong>
+  #{ipsum.paragraphs(2)}
+  <strong>#{ipsum.word} 3</strong>
+  #{ipsum.paragraphs(2)}"
 
-      end
-    end
-  end
+  Article.create(title: title, kb_number: kb_number, contents: contents)
+
 end
+
