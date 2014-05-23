@@ -1,6 +1,6 @@
 h2 Articles
 
-= form_tag articles_path, method: :get, class: 'form', remote: true, id: 'kb-search' do
+= form_tag root_path, method: :get, class: 'form', remote: true, id: 'kb-search' do
   .field
     = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search'
   br

@@ -10,8 +10,9 @@ Article.delete_all
 names = Forgery(:name)
 ipsum = Forgery(:lorem_ipsum)
 
-8900.times do |kb_counter|
-  kb_number = sprintf("KBA%08d", kb_counter+1)
+20000.times do |kb_counter|
+
+  kb_number = sprintf("KBA%08d", kb_counter)
   title = "#{names.company_name} - #{names.industry} - #{names.location} (#{kb_counter})"
 
   contents = 
