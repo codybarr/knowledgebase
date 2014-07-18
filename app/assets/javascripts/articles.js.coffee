@@ -5,6 +5,7 @@
 $(document).ready ->
   #$("#search-loader").hide();
 
+  ###
   $("#kb-search").on("ajax:success", (event, data) ->
     $("#kb-results").html(data.responseText))
 
@@ -13,3 +14,4 @@ $(document).ready ->
     $("#search-loader").addClass "spinner"
   ).ajaxStop ->
     $("#search-loader").removeClass "spinner"
+  ###
