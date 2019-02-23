@@ -31,7 +31,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass',  ~> 3.4.1'
 gem 'slim-rails'
 gem 'textacular'
 gem 'will_paginate'
